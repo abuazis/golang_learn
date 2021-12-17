@@ -46,7 +46,6 @@ func main() {
 	// one, isFriday, twoPointTwo, say := 1, true, 2.2, "hello"
 
 	//! Varaibel Underscore _
-
 	_ = "belajar mudah"
 	_ = "Golang itu mudah"
 	name, _ := "john", "wick"
@@ -54,7 +53,6 @@ func main() {
 	fmt.Printf("%s\n", name);
 
 	//! Deklarasi Variabel Menggunakan Keyword new
-
 	job := new(string)
 
 	fmt.Println(job)
