@@ -46,4 +46,27 @@ func main() {
 	var bio interface{} = &person{name: "wick", age: 27}
 	var name = bio.(*person).name
 	fmt.Println(name)
+
+	//! Kombinasi Slice, map dan interface{}
+	var person2 = []map[string]interface{}{
+		{"name": "Wick", "age": 23},
+		{"name": "Ethan", "age": 23},
+		{"name": "Bourne", "age": 22},
+	}
+
+	for _, each := range person2 {
+		fmt.Println(each["name"], "age is", each["age"])
+	}
+
+	//! Dengan memanfaatkan slice dan interface{}, kita 
+	//! bisa membuat data array yang isinya adalah bisa apa saja.
+	var fruits = []interface{}{
+		map[string]interface{}{"name": "strawberry", "total": 10},
+		[]string{"manggo", "pineapple", "papaya"},
+		"orange",
+	}
+
+	for _, each := range fruits {
+		fmt.Println(each)
+	}
 }
