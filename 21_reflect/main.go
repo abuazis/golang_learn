@@ -24,6 +24,18 @@ func main() {
 	// Ujicoba getPropertyInfo
 	var s1 = &student{Name: "wick", Grade: 2}
 	s1.getPropertyInfo()
+
+	// Ujicoba SetName
+	var s2 = &student{Name: "john wick", Grade: 2}
+	fmt.Println("nama :", s1.Name)
+
+	var reflectValue2 = reflect.ValueOf(s2)
+	var method = reflectValue2.MethodByName("SetName")
+	method.Call([]reflect.Value{
+		reflect.ValueOf("wick"),
+	})
+
+	fmt.Println("nama :", s1.Name)
 }
 
 type student struct {
@@ -31,7 +43,7 @@ type student struct {
 	Grade int
 }
 
-//! Informasi Pengaksesan Informasi Property Variabel Objek
+//! Pengaksesan Informasi Informasi Property Variabel Objek
 func (s *student) getPropertyInfo() {
 	var reflectValue = reflect.ValueOf(s)
 
@@ -49,4 +61,9 @@ func (s *student) getPropertyInfo() {
         fmt.Println("nilai     :", reflectValue.Field(i).Interface())
         fmt.Println("")
 	}
+}
+
+//! Pengaksesan Informasi Method Variabel Objek
+func (s *student) SetName(name string) {
+	s.Name = name
 }
